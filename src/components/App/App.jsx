@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
 import ContactsForm from 'components/ContactsForm';
-// import ContactsList from 'components/ContactsList';
+import ContactsList from 'components/ContactsList';
 // import ContactsFilter from 'components/ContactsFilter';
 
 import { Container, Wrapper, Title } from './App.styled';
@@ -19,7 +19,7 @@ const App = () => {
           <Title>Contacts</Title>
           {/* <ContactsFilter /> */}
 
-          {/* <ContactsList /> */}
+          <ContactsList />
         </Wrapper>
       )}
     </Container>
