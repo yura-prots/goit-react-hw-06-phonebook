@@ -1,7 +1,8 @@
+import { useDispatch } from 'react-redux';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import PropTypes from 'prop-types';
 
+import { addContact } from '../../redux/contactsSlice';
 import {
   Form,
   FormGroup,
@@ -15,7 +16,9 @@ const contactSchema = Yup.object().shape({
   phone: Yup.string().min(6, 'Too Short!').required('Required'),
 });
 
-const ContactsForm = ({ onAdd }) => {
+const ContactsForm = () => {
+  const dispatch = useDispatch();
+
   return (
     <div>
       <Formik
@@ -25,7 +28,7 @@ const ContactsForm = ({ onAdd }) => {
         }}
         validationSchema={contactSchema}
         onSubmit={(values, actions) => {
-          onAdd(values);
+          dispatch(addContact(values));
           actions.resetForm();
         }}
       >
@@ -47,10 +50,6 @@ const ContactsForm = ({ onAdd }) => {
       </Formik>
     </div>
   );
-};
-
-ContactsForm.propTypes = {
-  onAdd: PropTypes.func.isRequired,
 };
 
 export default ContactsForm;
