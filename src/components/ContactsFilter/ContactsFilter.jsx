@@ -1,24 +1,22 @@
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Filter } from './ContactsFilter.styled';
 
-const ContactsFilter = ({ filter, toFind }) => {
+const ContactsFilter = () => {
+  const filter = useSelector(state => state.filter);
+  const dispatch = useDispatch();
+
   return (
     <div>
       <Filter
         type="text"
         name="filter"
         value={filter}
-        onChange={e => toFind(e.target.value)}
+        onChange={e => dispatch(e.target.value)}
         placeholder="Find contact by name"
       />
     </div>
   );
-};
-
-ContactsFilter.propTypes = {
-  filter: PropTypes.string.isRequired,
-  toFind: PropTypes.func.isRequired,
 };
 
 export default ContactsFilter;
