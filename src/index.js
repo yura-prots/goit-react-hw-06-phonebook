@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
 
 import App from 'components/App';
-import { GlobalStyle } from './GlobalStyle.js';
+import { GlobalStyle } from './styles/GlobalStyle';
+import { store } from './redux/store.js';
 
 const theme = {
   colors: {
@@ -19,8 +21,10 @@ const theme = {
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <App />
+      <Provider store={store}>
+        <GlobalStyle />
+        <App />
+      </Provider>
     </ThemeProvider>
   </React.StrictMode>
 );
