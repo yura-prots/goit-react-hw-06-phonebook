@@ -1,8 +1,7 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
 import { deleteContact } from '../../redux/contactsSlice';
-
 import { Item, DeleteBtn } from './ListItem.styled';
 
 const ListItem = ({ contact: { id, name, phone } }) => {
@@ -19,13 +18,12 @@ const ListItem = ({ contact: { id, name, phone } }) => {
   );
 };
 
-// ListItem.propTypes = {
-//   contact: PropTypes.exact({
-//     id: PropTypes.string.isRequired,
-//     name: PropTypes.string.isRequired,
-//     phone: PropTypes.string.isRequired,
-//   }).isRequired,
-//   toDelete: PropTypes.func.isRequired,
-// };
+ListItem.propTypes = {
+  contact: PropTypes.exact({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default ListItem;
