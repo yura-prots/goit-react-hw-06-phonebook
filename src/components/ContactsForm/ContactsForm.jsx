@@ -19,7 +19,6 @@ const contactSchema = Yup.object().shape({
 
 const ContactsForm = () => {
   const dispatch = useDispatch();
-
   return (
     <div>
       <Formik
@@ -31,6 +30,7 @@ const ContactsForm = () => {
         validationSchema={contactSchema}
         onSubmit={(values, actions) => {
           dispatch(addContact(values));
+          console.log(dispatch(addContact(values)));
           actions.resetForm();
         }}
       >
