@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Filter } from './ContactsFilter.styled';
+import { filterContacts } from '../../redux/filterSlice';
 
 const ContactsFilter = () => {
   const filter = useSelector(state => state.filter);
@@ -12,7 +13,7 @@ const ContactsFilter = () => {
         type="text"
         name="filter"
         value={filter}
-        onChange={e => dispatch(e.target.value)}
+        onChange={e => dispatch(filterContacts(e.target.value))}
         placeholder="Find contact by name"
       />
     </div>

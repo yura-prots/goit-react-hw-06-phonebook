@@ -4,12 +4,19 @@ import ListItem from 'components/ListItem';
 import { List } from './ContactsList.styled';
 
 const ContactsList = () => {
-  const contacts = useSelector(state => state.contacts);
+  const visibleContacts = useSelector(state => {
+    return state.contacts.filter(contact =>
+      contact.name
+        .toLowerCase()
+        .trim()
+        .includes(state.filter.toLowerCase().trim())
+    );
+  });
 
   return (
     <div>
       <List>
-        {contacts.map(contact => (
+        {visibleContacts.map(contact => (
           <ListItem key={contact.id} contact={contact} />
         ))}
       </List>
