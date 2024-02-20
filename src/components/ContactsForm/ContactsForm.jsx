@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
 
-import { addContact } from '../../redux/contactsSlice';
+import { addContact } from '../../redux/contacts/slice';
 import {
   Form,
   FormGroup,

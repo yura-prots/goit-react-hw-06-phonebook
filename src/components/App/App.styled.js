@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import bg from '../../images/bg.jpg';
+import bg from '../../styles/images/bg.jpg';
 
 export const Container = styled.div`
   position: relative;
