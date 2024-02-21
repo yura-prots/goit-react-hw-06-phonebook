@@ -18,19 +18,28 @@ const contactSchema = Yup.object().shape({
 });
 
 const ContactsForm = () => {
-  // const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts);
   const dispatch = useDispatch();
 
   return (
     <div>
       <Formik
         initialValues={{
-          id: nanoid(),
+          id: '',
           name: '',
           phone: '',
         }}
         validationSchema={contactSchema}
         onSubmit={(values, actions) => {
+          const nameToAdd = values.name.toLowerCase();
+          const nameInList = contacts.find(contact => {
+            return contact.name === nameToAdd;
+          });
+          if (nameInList) {
+            return alert(`Contact ${nameToAdd} in the list`);
+          }
+
+          values.id = nanoid();
           dispatch(addContact(values));
           actions.resetForm();
         }}
