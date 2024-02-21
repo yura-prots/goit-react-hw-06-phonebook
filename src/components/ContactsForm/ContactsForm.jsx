@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
@@ -18,7 +18,9 @@ const contactSchema = Yup.object().shape({
 });
 
 const ContactsForm = () => {
+  // const contacts = useSelector(state => state.contacts);
   const dispatch = useDispatch();
+
   return (
     <div>
       <Formik

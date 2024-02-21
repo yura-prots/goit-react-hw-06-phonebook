@@ -4,13 +4,14 @@ import ListItem from 'components/ListItem';
 import { List } from './ContactsList.styled';
 
 const ContactsList = () => {
-  const visibleContacts = useSelector(state => {
-    return state.contacts.filter(contact =>
-      contact.name
-        .toLowerCase()
-        .trim()
-        .includes(state.filter.toLowerCase().trim())
-    );
+  const contacts = useSelector(state => state.contacts);
+  const filter = useSelector(state => state.filter);
+
+  const visibleContacts = contacts.filter(contact => {
+    const contactName = contact.name.toLowerCase().trim();
+    const filterName = filter.toLowerCase().trim();
+
+    return contactName.includes(filterName);
   });
 
   return (

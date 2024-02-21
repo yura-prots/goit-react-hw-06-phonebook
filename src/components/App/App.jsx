@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 
 import ContactsForm from 'components/ContactsForm';
-import ContactsList from 'components/ContactsList';
 import ContactsFilter from 'components/ContactsFilter';
+import ContactsList from 'components/ContactsList';
 
 import { Container, Wrapper, Title } from './App.styled';
 
@@ -18,7 +18,6 @@ const App = () => {
         <Wrapper>
           <Title>Contacts</Title>
           <ContactsFilter />
-
           <ContactsList />
         </Wrapper>
       )}
