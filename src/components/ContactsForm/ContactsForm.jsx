@@ -33,8 +33,9 @@ const ContactsForm = () => {
         onSubmit={(values, actions) => {
           const nameToAdd = values.name.toLowerCase();
           const nameInList = contacts.find(contact => {
-            return contact.name === nameToAdd;
+            return contact.name.toLowerCase() === nameToAdd;
           });
+
           if (nameInList) {
             return alert(`Contact ${nameToAdd} in the list`);
           }
