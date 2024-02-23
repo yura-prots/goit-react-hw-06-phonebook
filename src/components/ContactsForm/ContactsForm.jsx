@@ -3,6 +3,7 @@ import { Formik } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
 
+import { getContacts } from '../../redux/selectors/contacts';
 import { addContact } from '../../redux/contacts/slice';
 import {
   Form,
@@ -18,7 +19,7 @@ const contactSchema = Yup.object().shape({
 });
 
 const ContactsForm = () => {
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
   return (

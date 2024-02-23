@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux';
 import ContactsForm from 'components/ContactsForm';
 import ContactsFilter from 'components/ContactsFilter';
 import ContactsList from 'components/ContactsList';
+import { getContacts } from '../../redux/selectors/contacts';
 
 import { Container, Wrapper, Title } from './App.styled';
 
 const App = () => {
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(getContacts);
 
   return (
     <Container>
